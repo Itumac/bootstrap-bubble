@@ -1,0 +1,10 @@
+/*It mostly uses bootstrap 2.3.2 classes these are here for additional styling*/
+.bubble{min-width:300px;}
+.bubble-header {padding:8px;}
+.bubble-header.empty{
+    border:0px solid transparent;
+    padding: 3px 8px;
+    height:20px;
+}
+.bubble-title{} 
+
