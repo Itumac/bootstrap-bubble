@@ -279,5 +279,4 @@ POSSIBILITY OF SUCH DAMAGES.
 
                             FYI: From the developer
 
-  Unless you see commits beyond the initial one, this code is "parked" andstill
-  in development. Feel free to expand on it but it's not complete in my eyes. 
+An extension of bootstrap modal, and tooltip. Use it freely. Hope you enjoy it. 
