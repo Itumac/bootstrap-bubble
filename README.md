@@ -1,7 +1,7 @@
 bootstrap-bubble
 ================
 
-A bootstrap module that combines the best features of popover and modal. It's everything I wanted popover to be.
+A Bootstrap 2.3.2 module that combines the best features of popover and modal. It's everything I wanted popover to be.
 
 Features:
 
