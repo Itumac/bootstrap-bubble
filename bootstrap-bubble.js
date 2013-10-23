@@ -174,7 +174,6 @@
                   }
               }
               else if (whichway == "h") {
-                  console.log(elementPos.left + elementPos.width / 2 + actualWidth / 2)
                   if (leftPos == 0) {
                       $tip.find(".arrow").css({ "marginLeft": (elementPos.left + elementPos.width / 2) * -1 - 11 });
                   }
