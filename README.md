@@ -21,7 +21,7 @@ bubble will do it's best to place itself as directed.
 the bubble will never go off the page when it appears. It's max left is 0px and it's max right is the window width.
 The arrow will attemt to remain pointing from the element which called it.
 
-It works in IE9, Chrome and Firefox.
+It works in IE9, Chrome and Firefox. Probably other browsers too.
 
 To Do:
 - add resizing redraw.
