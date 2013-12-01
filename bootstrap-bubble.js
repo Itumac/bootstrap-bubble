@@ -1,5 +1,5 @@
 /* ===========================================================
-* bootstrapx-bubble.js v1.0.1
+* bootstrapx-bubble.js v1.0.2
 * ===========================================================
 * 
 * Written by Tim Camuti - based on tooltip, popover and modal
@@ -133,11 +133,11 @@
                       placement = "top"
                   }
                   break
-              case 'top':
-                  if (elementPos.top - windowCoords.scrollTop - actualHeight < (0 + paddingConstant)) {
-                      placement = "bottom"
-                  }
-                  break
+               case 'top':
+                   if (elementPos.top - windowCoords.scrollTop - actualHeight < (0 + paddingConstant)) {
+                       placement = "bottom"
+                   }
+                   break
               case 'left':
                   if (elementPos.left < actualWidth + paddingConstant) {
                       placement = "right"
@@ -178,9 +178,8 @@
                       $tip.find(".arrow").css({ "marginLeft": (elementPos.left + elementPos.width / 2) * -1 - 11 });
                   }
                   else if (rightPos == 0) {
-                      $tip.find(".arrow").css({ "marginLeft": windowCoords.width - (elementPos.left + elementPos.width / 2) + 11 })
-
-                  }
+                      $tip.find(".arrow").css({ "marginLeft": (windowCoords.width - elementPos.left) + (elementPos.width / 2) - 11 })
+                  } 
                   else {
                       $tip.find(".arrow").css({ "marginLeft": "-11px" });
                   }
@@ -219,7 +218,9 @@
           .addClass(placement)
           .addClass('in')
           this.escape()
-          this.clickClose()
+          if(this.options.clickClose){
+            this.clickClose()
+          }
       }
   }
 
@@ -256,7 +257,7 @@
   }
 
   , getPosition: function (inside) {
-      return $.extend({}, (inside ? { top: 0, left: 0} : this.$element.offset()), {
+      return $.extend({}, (inside ? { top: 0, left: 0} : this.$element.position()), {
           width: this.$element[0].offsetWidth
       , height: this.$element[0].offsetHeight
       })
@@ -265,7 +266,7 @@
   , getTitle: function(){
         var $e = this.$element
         , o = this.options
-        return $e.attr('data-original-title') || (typeof o.title == 'function' ? o.title.call($e[0]) : o.title)
+        return (typeof o.title == 'function' ? o.title.call($e[0]) : o.title) || $e.attr('data-original-title')
   }
 
   , validate: function(){
@@ -293,6 +294,7 @@
       var self = $(e.currentTarget)[this.type](this._options).data(this.type)
       self[self.tip().hasClass('in') ? 'hide' : 'show']()
   }
+
   , setContent: function(){
       var $tip = this.tip()
         , title = this.getTitle()
@@ -378,18 +380,19 @@
     $.fn.bubble.Constructor = Bubble
     $.fn.bubble.defaults = {
         animation: true
-  , selector: false
-  , delay: 0
-  , html: true
-  , title: ''
-  , content: ''
-  , placement: 'right'
-  , trigger: 'click'
-  , hideOthers: true
-  , template: '<div class="bubble popover zMax"><div class="arrow"></div><div class="bubble-inner">'
-    + '<div class="modal-header bubble-header"><button type="button" class="close" data-dismiss="bubble" aria-hidden="true">'
-    + '<i class="icon-remove"></i></button><h4 class="bubble-title"></h4></div><div class="bubble-content modal-body">'
-    + '</div></div></div>'
+      , selector: false
+      , delay: 0
+      , html: true
+      , title: ''
+      , content: ''
+      , placement: 'right'
+      , trigger: 'click'
+      , hideOthers: true
+      , clickClose : true
+      , template: '<div class="bubble popover"><div class="arrow"></div><div class="bubble-inner">'
+        + '<div class="modal-header bubble-header"><button type="button" class="close" data-dismiss="bubble" aria-hidden="true">'
+        + '<i class="icon-remove"></i></button><h5 class="bubble-title"></h5></div><div class="bubble-content modal-body">'
+        + '</div></div></div>'
     }
 
     /* BUBBLE NO CONFLICT
