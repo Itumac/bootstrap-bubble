@@ -1,7 +1,7 @@
 bootstrap-bubble
 ================
 
-A Bootstrap 2.3.2 module that combines the best features of popover and modal and it has intellignet placement. If the bubble will place off the page, the placement algorithm will either swithc placement choice or shift the bubble content to fit on the page. It's everything I wanted popover to be.
+A Bootstrap 2.3.2 module that combines the best features of bootstrap popover and bootstrap modal and employs an intelligent placement algorithm. If the bubble will fall off the page, the placement algorithm will either switch placement choice or shift the bubble content to fit on the page. It's everything I wanted popover to be.
 
 Features:
 
